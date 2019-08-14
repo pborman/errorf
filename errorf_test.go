@@ -33,6 +33,12 @@ func TestWarnf(t *testing.T) {
 	if got, want := w.String(), "message one\n"; got != want {
 		t.Errorf("Warnf(%q, %q) got %q, want %q", "message\n", "one", got, want)
 	}
+
+	w.Reset()
+	Warnf("", "one")
+	if got, want := w.String(), ""; got != want {
+		t.Errorf("Warnf(%q) got %q, want %q", "", got, want)
+	}
 }
 
 func TestDebugf(t *testing.T) {
